@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{fc089259-5e1d-4862-b1f1-37106c2954a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes">
+      <UniqueIdentifier>{593b4006-34e0-4dfc-b0bf-17270ff4d9a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\comand_line_argument">
+      <UniqueIdentifier>{9587102a-a6b9-45f1-b0e6-25e02339bb02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="global_headers">
+      <UniqueIdentifier>{3842926c-db2e-4bf1-be3f-036f5fb203c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\engine">
+      <UniqueIdentifier>{089483a8-8c8d-4fca-b7f6-d0c2e01313ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="UserConsoleApplication.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\comand_line_argument\comand_line_argument.cpp">
+      <Filter>source\classes\comand_line_argument</Filter>
+    </ClCompile>
+    <ClCompile Include="global_headers\pch.cpp">
+      <Filter>global_headers</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\engine\engine.cpp">
+      <Filter>source\classes\engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\classes\comand_line_argument\comand_line_argument.h">
+      <Filter>source\classes\comand_line_argument</Filter>
+    </ClInclude>
+    <ClInclude Include="global_headers\pch.h">
+      <Filter>global_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\engine\engine.h">
+      <Filter>source\classes\engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

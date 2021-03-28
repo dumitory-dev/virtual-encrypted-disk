@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="global_headers">
+      <UniqueIdentifier>{534c0e2e-594d-4664-bb4d-bc077b8a00f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{c1a18fbb-ffde-4c93-b4ab-eb7d48868d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes">
+      <UniqueIdentifier>{ffa0fba8-676d-4706-9047-93cd034bd9dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\interface">
+      <UniqueIdentifier>{f4bfe0be-3671-432b-b3db-5c129eceb77c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\define_device_manager">
+      <UniqueIdentifier>{9da68012-0c4f-4639-99ca-5fc36110ad0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\device">
+      <UniqueIdentifier>{06c255bb-0d4b-411e-83d7-a957d5ce77d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\driver_disk">
+      <UniqueIdentifier>{db03fbf6-5d18-4795-953c-48fe99d83eb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\exceptions">
+      <UniqueIdentifier>{793868f7-83a1-4bd9-911a-35b1a1380f59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\file">
+      <UniqueIdentifier>{80ecc05d-7f05-4162-9b1a-e8652e32fab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\install_manager">
+      <UniqueIdentifier>{d222a932-5c2e-4742-8ad4-90e16cda5abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\wrap">
+      <UniqueIdentifier>{c2ce805a-f911-45f8-acc3-e6b7d4f3da46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\ved_manager">
+      <UniqueIdentifier>{99d0d3ee-d265-4f38-a4d8-f896bf3d7d51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\hash">
+      <UniqueIdentifier>{fff1b8ef-a9af-4de5-a634-9759e87c05aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\classes\copy_sparse">
+      <UniqueIdentifier>{d648c742-c5da-4516-92b2-48ffeff76359}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="global_headers\pch.cpp">
+      <Filter>global_headers</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\define_device\define_device_manager.cpp">
+      <Filter>source\classes\define_device_manager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\device\device.cpp">
+      <Filter>source\classes\device</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\driver_disk\driver_disk.cpp">
+      <Filter>source\classes\driver_disk</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\file\file.cpp">
+      <Filter>source\classes\file</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\install_manager\install_manager.cpp">
+      <Filter>source\classes\install_manager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\wrap\wrap.cpp">
+      <Filter>source\classes\wrap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\ved_manager\ved_manager.cpp">
+      <Filter>source\classes\ved_manager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\hash\hash.cpp">
+      <Filter>source\classes\hash</Filter>
+    </ClCompile>
+    <ClCompile Include="source\classes\copy_sparse\copy_sparse.cpp">
+      <Filter>source\classes\copy_sparse</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="global_headers\pch.h">
+      <Filter>global_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\define_device\define_device_manager.h">
+      <Filter>source\classes\define_device_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\device\device.h">
+      <Filter>source\classes\device</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\driver_disk\driver_disk.h">
+      <Filter>source\classes\driver_disk</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\exceptions\exception.h">
+      <Filter>source\classes\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\file\file.h">
+      <Filter>source\classes\file</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\install_manager\install_manager.h">
+      <Filter>source\classes\install_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\wrap\wrap.h">
+      <Filter>source\classes\wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="source\interface\IFile.h">
+      <Filter>source\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\ved_manager\ved_manager.h">
+      <Filter>source\classes\ved_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\interface\i_ved_manager.h">
+      <Filter>source\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\hash\hash.h">
+      <Filter>source\classes\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="source\classes\copy_sparse\copy_sparse.h">
+      <Filter>source\classes\copy_sparse</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
