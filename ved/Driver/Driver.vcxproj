@@ -77,6 +77,7 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>WDM</DriverType>
     <Driver_SpectreMitigation>false</Driver_SpectreMitigation>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
     <TargetVersion>Windows10</TargetVersion>
@@ -119,65 +120,73 @@
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>vs19tmp\$(Configuration)\</IntDir>
     <TargetName>$(TargetName.Replace(' ',''))VED</TargetName>
+    <IncludePath>$(VC_IncludePath);$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>vs19tmp\$(Configuration)\</IntDir>
     <TargetName>$(TargetName.Replace(' ',''))VED</TargetName>
+    <IncludePath>$(VC_IncludePath);$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>vs19tmp\$(Configuration)\</IntDir>
     <TargetName>$(TargetName.Replace(' ',''))VED</TargetName>
+    <IncludePath>$(VC_IncludePath);$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>vs19tmp\$(Configuration)\</IntDir>
     <TargetName>$(TargetName.Replace(' ',''))VED</TargetName>
+    <IncludePath>$(VC_IncludePath);$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>vs19tmp\$(Configuration)\</IntDir>
     <TargetName>$(TargetName.Replace(' ',''))VED</TargetName>
+    <IncludePath>$(VC_IncludePath);$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>vs19tmp\$(Configuration)\</IntDir>
     <TargetName>$(TargetName.Replace(' ',''))VED</TargetName>
+    <IncludePath>$(VC_IncludePath);$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>vs19tmp\$(Configuration)\</IntDir>
     <TargetName>$(TargetName.Replace(' ',''))VED</TargetName>
+    <IncludePath>$(VC_IncludePath);$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>vs19tmp\$(Configuration)\</IntDir>
     <TargetName>$(TargetName.Replace(' ',''))VED</TargetName>
+    <IncludePath>$(VC_IncludePath);$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DRIVER_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
-      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>DRIVER_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -186,30 +195,53 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DRIVER_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)3rdparty\kstl\include;$(SolutionDir)3rdparty\kcrt\include;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;DRIVER_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;%(AdditionalDependencies);$(SolutionDir)3rdparty\kstl\lib\x64\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x64\kcrt.lib;ntstrsafe.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)3rdparty\kstl\include;$(SolutionDir)3rdparty\kcrt\include;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>DRIVER_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;DRIVER_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>wdmsec.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;%(AdditionalDependencies);$(SolutionDir)3rdparty\kstl\lib\x64\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x64\kcrt.lib;ntstrsafe.lib</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
     </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\crypt.c" />
-    <ClCompile Include="source\driver.c" />
+    <ClCompile Include="source\crypt.cpp" />
+    <ClCompile Include="source\driver.cpp" />
+    <ClCompile Include="utils\path.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\codeioctl.h" />
@@ -219,6 +251,7 @@
     <ClInclude Include="headers\headers.h" />
     <ClInclude Include="headers\libraries.h" />
     <ClInclude Include="headers\structs.h" />
+    <ClInclude Include="utils\path.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

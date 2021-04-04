@@ -7,12 +7,18 @@
     <Filter Include="headers">
       <UniqueIdentifier>{6c57b75a-e8b0-466c-8f0d-766565293e96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{3a5f280e-dbc0-47b4-8916-f89d1c250799}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\driver.c">
+    <ClCompile Include="utils\path.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="source\driver.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\crypt.c">
+    <ClCompile Include="source\crypt.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="headers\structs.h">
       <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\path.hpp">
+      <Filter>utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

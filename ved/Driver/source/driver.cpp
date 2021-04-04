@@ -21,7 +21,7 @@ DRIVER_DISPATCH ControlDevice;
 KSTART_ROUTINE Thread;
 
 #pragma code_seg("INIT")
-NTSTATUS DriverEntry(struct _DRIVER_OBJECT* DriverObject, UNICODE_STRING* pRegPath)
+NTSTATUS SysMain(PDRIVER_OBJECT DriverObject, PUNICODE_STRING pRegPath)
 {
 	UNREFERENCED_PARAMETER(pRegPath);
 
@@ -762,7 +762,7 @@ PDEVICE_OBJECT DeleteDevice(IN PDEVICE_OBJECT pDeviceObject)
 #endif
 
 	
-	PDEVICE_EXTENSION pDeviceExtension = pDeviceObject->DeviceExtension;
+	PDEVICE_EXTENSION pDeviceExtension = (PDEVICE_EXTENSION)pDeviceObject->DeviceExtension;
 	pDeviceExtension->terminate_thread = TRUE;
 
 	KeSetEvent(
@@ -1073,7 +1073,7 @@ VOID Thread(IN PVOID pContext)
 			switch (IoStack->MajorFunction)
 			{
 			case IRP_MJ_READ:
-
+			{
 				uCountBlock = 0;
 				/*j = IoStack->Parameters.Read.ByteOffset.QuadPart % pDeviceExtension->password.Length;
 				if (j != 0 || IoStack->Parameters.Read.Length % 2048  != 0 || IoStack->Parameters.Read.ByteOffset.QuadPart % 2048 != 0)
@@ -1141,8 +1141,9 @@ VOID Thread(IN PVOID pContext)
 				RtlCopyMemory(pSystemBuffer, pBuffer, IoStack->Parameters.Read.Length);
 				ExFreePool(pBuffer);
 				break;
-
+			}
 			case IRP_MJ_WRITE:
+			{
 				uCountBlock = 0;
 				/*j = IoStack->Parameters.Write.ByteOffset.QuadPart % pDeviceExtension->password.Length;
 				if ( IoStack->Parameters.Write.ByteOffset.QuadPart % 2048 == 0)
@@ -1157,7 +1158,7 @@ VOID Thread(IN PVOID pContext)
 					pIrp->IoStatus.Information = 0;
 					break;
 				}
-				pSystemBuffer = MmGetSystemAddressForMdlSafe(pIrp->MdlAddress, NormalPagePriority);
+				pSystemBuffer = (PUCHAR)MmGetSystemAddressForMdlSafe(pIrp->MdlAddress, NormalPagePriority);
 				pBuffer = (PUCHAR)ExAllocatePoolWithTag(PagedPool, IoStack->Parameters.Write.Length, FILE_DISK_POOL_TAG);
 				if (pBuffer == NULL || pSystemBuffer == NULL)
 				{
@@ -1214,9 +1215,10 @@ VOID Thread(IN PVOID pContext)
 				}
 				ExFreePool(pBuffer);
 				break;
-
+			}
 
 			case IRP_MJ_DEVICE_CONTROL:
+			{
 				switch (IoStack->Parameters.DeviceIoControl.IoControlCode)
 				{
 
@@ -1233,6 +1235,7 @@ VOID Thread(IN PVOID pContext)
 
 				}
 				break;
+			}
 			default:
 				pIrp->IoStatus.Status = STATUS_SUCCESS;
 
@@ -1267,14 +1270,14 @@ NTSTATUS CreateFile(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp, BOOLEAN bIsOp
 
 	pDeviceExtension->file_name.Length = pOpenFileInformation->FileNameLength * sizeof(WCHAR);
 	pDeviceExtension->file_name.MaximumLength = pOpenFileInformation->FileNameLength * sizeof(WCHAR);
-	pDeviceExtension->file_name.Buffer = ExAllocatePoolWithTag(NonPagedPool, pOpenFileInformation->FileNameLength * sizeof(WCHAR), FILE_DISK_POOL_TAG);
+	pDeviceExtension->file_name.Buffer = (PWCH)ExAllocatePoolWithTag(NonPagedPool, pOpenFileInformation->FileNameLength * sizeof(WCHAR), FILE_DISK_POOL_TAG);
 #ifdef DBG
 	DbgBreakPoint();
 #endif
 
 	pDeviceExtension->password.Length = pOpenFileInformation->PasswordLength;
 	pDeviceExtension->password.MaximumLength = MAX_PASSWORD_SIZE;
-	pDeviceExtension->password.Buffer = ExAllocatePoolWithTag(NonPagedPool, pOpenFileInformation->PasswordLength, FILE_DISK_POOL_TAG);
+	pDeviceExtension->password.Buffer = (PCHAR)ExAllocatePoolWithTag(NonPagedPool, pOpenFileInformation->PasswordLength, FILE_DISK_POOL_TAG);
 	pDeviceExtension->crypt_mode = pOpenFileInformation->CryptMode;
 
 
@@ -1302,7 +1305,7 @@ NTSTATUS CreateFile(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp, BOOLEAN bIsOp
 	UNICODE_STRING usFileName;
 	usFileName.Length = pDeviceExtension->file_name.Length;
 	usFileName.MaximumLength = pDeviceExtension->file_name.MaximumLength;
-	usFileName.Buffer = ExAllocatePoolWithTag(
+	usFileName.Buffer = (PWCH)ExAllocatePoolWithTag(
 		NonPagedPool,
 		pDeviceExtension->file_name.Length * sizeof(WCHAR),
 		FILE_DISK_POOL_TAG
@@ -1396,7 +1399,7 @@ NTSTATUS CreateFile(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp, BOOLEAN bIsOp
 			NULL
 		);
 
-		const enum Crypt mode = pPasswordBuffer[CRYPT_OFFSET - 1];
+		const enum Crypt mode = (Crypt)pPasswordBuffer[CRYPT_OFFSET - 1];
 		pDeviceExtension->crypt_mode = mode;
 
 
