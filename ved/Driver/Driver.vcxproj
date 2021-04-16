@@ -183,13 +183,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
-      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies);legacy_stdio_definitions.lib</AdditionalDependencies>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>DRIVER_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DRIVER_PROJECT;%(PreprocessorDefinitions);_NO_CRT_STDIO_INLINE</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -207,7 +207,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)3rdparty\kstl\include;$(SolutionDir)3rdparty\kcrt\include;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;DRIVER_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;DRIVER_PROJECT;%(PreprocessorDefinitions);_NO_CRT_STDIO_INLINE</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
