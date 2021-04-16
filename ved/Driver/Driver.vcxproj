@@ -175,7 +175,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general-headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DRIVER_PROJECT;%(PreprocessorDefinitions);_NO_CRT_STDIO_INLINE</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -187,7 +187,7 @@
       <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general-headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>DRIVER_PROJECT;%(PreprocessorDefinitions);_NO_CRT_STDIO_INLINE;_NO_CRT_STDIO_INLINE</PreprocessorDefinitions>
@@ -196,7 +196,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)3rdparty\kstl\include;$(SolutionDir)3rdparty\kcrt\include;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general-headers;$(SolutionDir)3rdparty\kstl\include;$(SolutionDir)3rdparty\kcrt\include;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;DRIVER_PROJECT;%(PreprocessorDefinitions);_NO_CRT_STDIO_INLINE</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -205,7 +205,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)3rdparty\kstl\include;$(SolutionDir)3rdparty\kcrt\include;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general-headers;$(SolutionDir)3rdparty\kstl\include;$(SolutionDir)3rdparty\kcrt\include;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;DRIVER_PROJECT;%(PreprocessorDefinitions);_NO_CRT_STDIO_INLINE;_NO_CRT_STDIO_INLINE</PreprocessorDefinitions>

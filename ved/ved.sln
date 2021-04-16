@@ -5,17 +5,17 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Driver", "Driver\Driver.vcxproj", "{1D1EEE04-0197-41DE-83EC-B9F17A82BF75}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lib", "Lib\Lib.vcxproj", "{BB182981-61D0-40C2-81B6-263F0E21C416}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lib", "lib\Lib.vcxproj", "{BB182981-61D0-40C2-81B6-263F0E21C416}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserConsoleApplication", "UserPrograms\ConsoleInterface\UserConsoleApplication\UserConsoleApplication.vcxproj", "{126E3B68-18D8-4563-A8B6-20365A72C06C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserProgramms", "UserProgramms", "{6C5E7B07-6824-4C24-B3EE-06C735B09987}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "user-program", "user-program", "{6C5E7B07-6824-4C24-B3EE-06C735B09987}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{62C16533-866D-4245-A3EB-85E1B46E5116}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLib", "Tests\TestLib\TestLib.vcxproj", "{BB117746-AEE7-475F-B5D1-AD40D1A2AB4A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "general_headers", "general_headers", "{E724A762-C3C8-493F-9C48-94129AA85842}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "general-headers", "general-headers", "{E724A762-C3C8-493F-9C48-94129AA85842}"
 	ProjectSection(SolutionItems) = preProject
 		general_headers\constant.h = general_headers\constant.h
 		general_headers\open_file_info.h = general_headers\open_file_info.h
