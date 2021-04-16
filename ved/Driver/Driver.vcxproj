@@ -183,7 +183,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
-      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies);legacy_stdio_definitions.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)general_headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
