@@ -15,8 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLib", "Tests\TestLib\Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "general-headers", "general-headers", "{E724A762-C3C8-493F-9C48-94129AA85842}"
 	ProjectSection(SolutionItems) = preProject
-		general_headers\constant.h = general_headers\constant.h
-		general_headers\open_file_info.h = general_headers\open_file_info.h
+		general-headers\constant.h = general-headers\constant.h
+		general-headers\open_file_info.h = general-headers\open_file_info.h
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestDriver", "Tests\TestDriver\TestDriver.vcxproj", "{F31EDD84-05B9-4755-B054-79FE3C5135C4}"
