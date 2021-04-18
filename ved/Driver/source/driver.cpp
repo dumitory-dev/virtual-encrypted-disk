@@ -1422,7 +1422,7 @@ NTSTATUS CreateFile(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp, BOOLEAN bIsOp
 
 		}
 
-		for (int i = CRYPT_OFFSET; i <= pDeviceExtension->password.Length; ++i)
+		for (int i{CRYPT_OFFSET}; i < pDeviceExtension->password.Length; ++i)
 		{
 			if (pPasswordBuffer[i] != pDeviceExtension->password.Buffer[i])
 			{
