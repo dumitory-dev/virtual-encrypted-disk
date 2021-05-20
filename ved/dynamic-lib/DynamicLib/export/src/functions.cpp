@@ -10,7 +10,6 @@ template<typename... Types>
 bool
 check_arguments(Types... args) noexcept
 {
-
   const auto check_null_pointer = [](auto param) {
     if constexpr (std::is_pointer_v<std::decay_t<decltype(param)>>) {
       return static_cast<bool>(param);
@@ -46,8 +45,7 @@ template<typename T, typename... Args>
 auto
 create_method_wrapper(T&& func, Args&&... args)
 {
-  return
-    [&func, &args...]() { (manager.get()->*func)(static_cast<Args>(args)...); };
+  return [&func, &args...]() { (manager.get()->*func)(args...); };
 }
 
 template<typename T, typename... Args>
@@ -95,8 +93,7 @@ IMLP_TEMPLATE_FUNC_VED_API(run_driver)
 
 template<typename... Args>
 const wchar_t*
-get_error(Args... param)
+get_error(Args... param) noexcept
 {
   return cur_error.c_str();
 }
-
