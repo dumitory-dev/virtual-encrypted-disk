@@ -30,3 +30,7 @@ An application for creating and working with virtual encrypted logical drives.
         
            Implement the interface using a console application or GUI.
 2.	Driver - a virtual disk driver that redirects data to a file with encryption.
+
+
+### Old project history
+https://github.com/DumitoryDev/VED
