@@ -20,6 +20,7 @@
 [Rr]eleases/
 x64/
 x86/
+!3rdparty/**
 bld/
 [Bb]in/
 [Oo]bj/
