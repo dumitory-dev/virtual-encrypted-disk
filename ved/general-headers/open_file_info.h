@@ -16,5 +16,5 @@ typedef struct _OPEN_FILE_INFORMATION {
 	USHORT			PasswordLength;
 	CHAR			Password[MAX_PASSWORD_SIZE];
 	WCHAR			FileName[MAX_PATH];
-	enum Crypt			CryptMode;
+	enum Crypt		CryptMode;
 }OPEN_FILE_INFORMATION, *POPEN_FILE_INFORMATION;
