@@ -103,7 +103,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include;$(ProjectDir)export\external</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -122,7 +122,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include;$(ProjectDir)export\external</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -141,7 +141,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include;$(ProjectDir)export\external</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -160,7 +160,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include;$(ProjectDir)export\external</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -171,16 +171,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="export\external\json.hpp" />
+    <ClInclude Include="export\include\main.h" />
     <ClInclude Include="export\include\functions.h" />
+    <ClInclude Include="export\include\global_variable.h" />
+    <ClInclude Include="export\include\safecall.h" />
+    <ClInclude Include="export\include\utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="export\src\functions.cpp" />
+    <ClCompile Include="export\src\main.cpp" />
+    <ClCompile Include="export\src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\lib\Lib.vcxproj">
       <Project>{bb182981-61d0-40c2-81b6-263f0e21c416}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,47 +1,45 @@
 #pragma once
+#include "utils.h"
+#include "json.hpp"
+#include "safecall.h"
 
-#ifdef DLL_EXPORTS
-#define DLL_API __declspec(dllexport)
-#else
-#define DLL_API __declspec(dllimport)
-#endif
+#define IMLP_TEMPLATE_FUNC_VED_API(name)                                       \
+  template<typename... Args>                                                   \
+  bool name(Args... param) noexcept                                            \
+  {                                                                            \
+    return safe_call(&ved::i_ved_manager::name, param...);                     \
+  }
 
-#define DELC_TEMPLATE_FUNC(name, ret_type)                                     \
-  template<typename... T>                                                      \
-  DLL_API ret_type name(T... t) noexcept;
+IMLP_TEMPLATE_FUNC_VED_API(un_mount)
+IMLP_TEMPLATE_FUNC_VED_API(mount)
+IMLP_TEMPLATE_FUNC_VED_API(mount_ex)
+IMLP_TEMPLATE_FUNC_VED_API(create_file)
+IMLP_TEMPLATE_FUNC_VED_API(run_driver)
 
-#define DELC_TEMPLATE_FUNC_VED_API(name) DELC_TEMPLATE_FUNC(name, bool)
-
-DELC_TEMPLATE_FUNC_VED_API(un_mount);
-DELC_TEMPLATE_FUNC_VED_API(mount);
-DELC_TEMPLATE_FUNC_VED_API(mount_ex);
-DELC_TEMPLATE_FUNC_VED_API(create_file);
-DELC_TEMPLATE_FUNC_VED_API(run_driver);
-DELC_TEMPLATE_FUNC(get_error, const wchar_t*);
-
-extern "C"
+template<typename... Args>
+const wchar_t*
+get_error(Args...) noexcept
 {
+  return cur_error.c_str();
+}
 
-  template DLL_API bool un_mount(wchar_t letter) noexcept;
+template<typename... Args>
+bool
+get_mounted_disks(char* buffer, int* len) noexcept
+{
+  return noexcept_call([=]() {
+    if (!check_arguments(buffer, len))
+      throw std::exception("Invalid input argument(null pointer)");
 
-  template DLL_API bool mount(const wchar_t* path,
-                              const char* password,
-                              wchar_t letter) noexcept;
+    const auto json_dump =
+      utils::convert_mounted_disk_to_json(manager->get_mounted_disks());
 
-  template DLL_API bool mount_ex(const wchar_t* path,
-                                 unsigned long long size,
-                                 const char* password,
-                                 wchar_t letter,
-                                 enum Crypt crypt_mode) noexcept;
+    if (*len <= json_dump.size()) {
+      *len = json_dump.size() + 1;
+      throw std::exception("Too small input buffer!");
+    }
 
-  template DLL_API bool create_file(const wchar_t* path,
-                                    unsigned long long size,
-                                    const char* password,
-                                    enum Crypt crypt_mode) noexcept;
-
-  template DLL_API bool run_driver(unsigned long flag_startup,
-                                   const wchar_t* path_driver,
-                                   const wchar_t* name_service) noexcept;
-
-  template DLL_API const wchar_t* get_error() noexcept;
+    memcpy(buffer, json_dump.c_str(), json_dump.size());
+    buffer[json_dump.size()] = '\0';
+  });
 }
