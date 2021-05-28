@@ -14,17 +14,17 @@ namespace ved
 		i_file& operator = (const i_file&) = delete;
 		i_file& operator = (i_file&&) = delete;
 		virtual ~i_file(void) = default;
-		
+
 		virtual i_file& connect(LPOVERLAPPED = nullptr) const = 0;
-		
+
 		virtual i_file& disconnect(void) const = 0;
-		
+
 		virtual DWORD write(const std::vector<BYTE>& vec_buf,
-		                    LPOVERLAPPED lp_overlapped = {}) const
+			LPOVERLAPPED lp_overlapped = {}) const
 		{
-			
+
 			DWORD dw_return = {};
-			
+
 			if (!WriteFile(*this->h_,
 				vec_buf.data(),
 				static_cast<DWORD>(vec_buf.size()),
@@ -38,7 +38,7 @@ namespace ved
 
 
 			}
-			
+
 			return dw_return;
 
 
@@ -46,11 +46,11 @@ namespace ved
 
 
 		virtual DWORD read(std::vector<BYTE>& vec_buf,
-		                   LPOVERLAPPED lp_overlapped = {}) const
+			LPOVERLAPPED lp_overlapped = {}) const
 		{
 
 			DWORD dw_return = {};
-			
+
 			if (!ReadFile(*this->h_,
 				vec_buf.data(),
 				static_cast<DWORD>(vec_buf.size()),
@@ -66,11 +66,11 @@ namespace ved
 			}
 
 			return dw_return;
-			
+
 		}
 
 
-	    operator HANDLE(void) const noexcept
+		operator HANDLE(void) const noexcept
 		{
 			return *this->h_;
 		}
@@ -83,30 +83,31 @@ namespace ved
 		{
 			return !*this->h_;
 		}
-				
+
 
 	protected:
-		
+
 		template<typename T, typename Param>
 		static std::unique_ptr<i_file> create(const Param& param)
 		{
 
-			std::unique_ptr<i_file> u_ptr_return(new T(param));
+			std::unique_ptr<i_file> u_ptr_return = std::make_unique<T>(param);
+
 			u_ptr_return->create();
 			return u_ptr_return;
 
 		}
-		
-		
+
+
 
 		handle h_{};
 
 		i_file(void) : h_(std::make_unique<ved::handle>()) { }
 
-		
-		
+
+
 		virtual i_file& create(void) = 0;
-				
+
 
 	};
 
