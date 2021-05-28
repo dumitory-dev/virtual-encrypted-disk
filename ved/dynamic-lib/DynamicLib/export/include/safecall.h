@@ -43,7 +43,7 @@ template<typename T, typename... Args>
 auto
 create_method_wrapper(T&& func, Args&&... args)
 {
-  return [&func, &args...]() {
+  return [... args = std::forward<Args>(args), &func]() mutable {
     (manager.get()->*func)(std::forward<Args>(args)...);
   };
 }
