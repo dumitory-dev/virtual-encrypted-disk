@@ -13,7 +13,6 @@ namespace ved
 			throw ved::c_win_api_exception(L"Error CommandLineToArgvW",
 				GetLastError());
 
-		std::vector<std::wstring> str;
 		std::wstringstream ss;
 
 		for (auto i{ 1 }; i < n_args; i++)
