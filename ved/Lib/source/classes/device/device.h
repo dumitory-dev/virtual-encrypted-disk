@@ -1,6 +1,5 @@
 #pragma once
 #include "../file/file.h"
-#include "../exceptions/Exception.h"
 
 namespace ved
 {
