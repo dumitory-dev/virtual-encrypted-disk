@@ -29,7 +29,8 @@ int main(int argc, wchar_t ** argv)
 	{
 		std::wcout<<"error!"<<std::endl;
 	}
-  
+
+	return 0;
 }
 
 
