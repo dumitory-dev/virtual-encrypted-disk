@@ -55,10 +55,9 @@ namespace  ved
 		template<typename T>
 		static std::unique_ptr<i_ved_manager> create(void)
 		{
-			std::unique_ptr<i_ved_manager> u_ptr_return(new T());
+			std::unique_ptr<i_ved_manager> u_ptr_return = std::make_unique<T>();
 					   
-			return u_ptr_return;
-			
+			return u_ptr_return;	
 		}
 
 		
