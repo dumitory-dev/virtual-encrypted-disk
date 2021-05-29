@@ -1,0 +1,104 @@
+﻿<mah:MetroWindow x:Class="GUI.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 Title="VED"
+                 Width="790"
+                 Height="464"
+                 WindowStartupLocation="CenterScreen"
+                 mc:Ignorable="d">
+
+    <Canvas Margin="0,0,0,58">
+
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" Click="ButtonOpenCreateFile_OnClick"/>
+                    <MenuItem Header="_Open" Click="MenuItemOpenFile_OnClick"/>
+                    <MenuItem Header="_Save" />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <Grid Height="295" Width="780" Canvas.Left="10" Canvas.Top="13">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="-90"
+                                  RenderingBias="Quality" ShadowDepth="2"/>
+            </Grid.Effect>
+
+            <ListView Margin="0,31,10,-58" Name="lvUsers" Padding="10" SelectedItem="{Binding SelectedDisk}" ItemsSource="{Binding DiskCollection}">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem 
+                           
+                                  Header="Remove"
+                                  Command="{Binding DeleteDisk}"
+                                  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Letter" Width="50" DisplayMemberBinding="{Binding Letter}" />
+                        <GridViewColumn Header="Path" Width="100" DisplayMemberBinding="{Binding Path}" />
+                        <GridViewColumn Header="Size" Width="50" DisplayMemberBinding="{Binding Size}" />
+                        <GridViewColumn Header="Is Mounted" Width="100" DisplayMemberBinding="{Binding IsMounted}" />
+                    </GridView>
+                </ListView.View>
+
+
+            </ListView>
+
+
+
+        </Grid>
+        <Button Canvas.Left="18" Canvas.Top="384" Width="105" Click="ButtonMount_OnClick">
+            Mount!
+        </Button>
+        <Button Canvas.Left="128" Canvas.Top="384" Width="105" Click="ButtonUnMount_OnClick" Height="27" Content="Un mount!" RenderTransformOrigin="0.481,0.532"/>
+
+
+
+        <mah:FlyoutsControl Height="434" Width="500">
+            <mah:Flyout Header="Create file" IsOpen="False" Position="Left" Width="300" Name="FlyoutCreateFile">
+                <StackPanel HorizontalAlignment="Center" Width="Auto"  Orientation="Vertical">
+
+
+                    <Label Content="File path" />
+                    <TextBox Width="150" Height="10" Name="TbPathFile">
+
+                    </TextBox>
+                    <Button Margin="0,0,0,10" Name="BtOpenFileManager" Click="ButtonOpenFileManager_OnClick">
+                        Open explorer
+                    </Button>
+
+
+                    <Label Content="File size(mb)" />
+                    <TextBox Width="150" Height="10" Name="TbFileSize">
+
+                    </TextBox>
+                    <Label Content="Password" />
+                    <PasswordBox Width="150" Height="10" Name="TbPassword">
+
+                    </PasswordBox>
+                    <Label Content="Crypt mode" />
+                    <RadioButton Margin="0,0,0,10" Name="rbAesCrypt">AES</RadioButton>
+                    <RadioButton>RC4</RadioButton>
+
+                    <Button Margin="0,20,0,0" Click="ButtonCreateFile_OnClick">
+                        OK
+                    </Button>
+
+
+
+                </StackPanel>
+            </mah:Flyout>
+        </mah:FlyoutsControl>
+
+    </Canvas>
+
+
+</mah:MetroWindow>
