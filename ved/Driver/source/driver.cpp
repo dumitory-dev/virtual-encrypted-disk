@@ -285,11 +285,18 @@ NTSTATUS ControlDevice(struct _DEVICE_OBJECT* pDeviceObject, struct _IRP* pIrp)
 #ifdef  DBG
 		DbgBreakPoint();
 #endif
-
+        if (IoStack->Parameters.DeviceIoControl.InputBufferLength < sizeof(OPEN_FILE_INFORMATION)) 
+		{
+            status = STATUS_INVALID_PARAMETER;
+            pIrp->IoStatus.Information = 0;
+            break;
+        }
+			
 		if (pDeviceObject == g_pDeviceObject)
 		{
 
 			status = CreateFile(g_pDeviceObject, pIrp, FALSE);
+			
 			if (status != STATUS_SUCCESS || pIrp->IoStatus.Information != 0)
 			{
 				break;
@@ -312,14 +319,6 @@ NTSTATUS ControlDevice(struct _DEVICE_OBJECT* pDeviceObject, struct _IRP* pIrp)
 			break;
 		}
 
-		if (IoStack->Parameters.DeviceIoControl.InputBufferLength
-			<
-			sizeof(OPEN_FILE_INFORMATION))
-		{
-			status = STATUS_INVALID_PARAMETER;
-			pIrp->IoStatus.Information = 0;
-			break;
-		}
 
 		IoMarkIrpPending(pIrp);
 
@@ -1266,6 +1265,11 @@ NTSTATUS CreateFile(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp, BOOLEAN bIsOp
 
 	PDEVICE_EXTENSION pDeviceExtension = (PDEVICE_EXTENSION)pDeviceObject->DeviceExtension;
 	POPEN_FILE_INFORMATION pOpenFileInformation = (POPEN_FILE_INFORMATION)pIrp->AssociatedIrp.SystemBuffer;
+
+	if (!(pOpenFileInformation != NULL && pOpenFileInformation->PasswordLength != 0 && pOpenFileInformation->FileNameLength != 0))
+          return STATUS_DATA_ERROR;
+	
+	
 	pDeviceExtension->letter = pOpenFileInformation->DriveLetter;
 
 	pDeviceExtension->file_name.Length = pOpenFileInformation->FileNameLength * sizeof(WCHAR);
