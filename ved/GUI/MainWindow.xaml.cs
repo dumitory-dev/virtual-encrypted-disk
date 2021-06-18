@@ -14,6 +14,7 @@ using GUI.VEDHelper.VedUnsafeNativeMethods;
 using GUI.View;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.SimpleChildWindow;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 
@@ -33,8 +34,9 @@ namespace GUI
 
                 InitializeComponent();
                 _manager = new VedManager();
-                LoadSettings();
                 LoadMountedDisk();
+                LoadSettings();
+
 
                 this.Closing += (_, _) => this._settings.SaveDisks(new List<VirtualDisk>(this._disksView.DiskCollection));
                 this.DataContext = _disksView;
@@ -64,7 +66,7 @@ namespace GUI
             if (disks.Count == 0)
                 return;
 
-            foreach (var disk in disks)
+            foreach (var disk in disks.Where(disk => disk.IsMounted != true))
                 this._disksView.DiskCollection.Add(disk);
 
         }
@@ -95,7 +97,7 @@ namespace GUI
                 if (nowIndex == -1)
                     return;
 
-                this._manager.UnMount('P');
+                this._manager.UnMount(this._disksView.DiskCollection[nowIndex].Letter);
                 this._disksView.DiskCollection[nowIndex].IsMounted = false;
                 this._disksView.DiskCollection[nowIndex].Letter = ' ';
 
@@ -113,16 +115,23 @@ namespace GUI
         {
             try
             {
+
+                var mountDiskWindow = new MountDisk() { AllowMove = false };
+                await this.ShowChildWindowAsync(mountDiskWindow);
+                var pass = mountDiskWindow.Password;
+                var letter = mountDiskWindow.Letter;
+
+                if (string.IsNullOrEmpty(pass) || letter == '\0')
+                    return;
+
                 var nowIndex = this.lvUsers.SelectedIndex;
 
                 if (nowIndex == -1)
                     return;
 
-                var result = await this.ShowInputAsync("INFO", "Please, type your password");
-
-                _manager.Mount(this._disksView.DiskCollection[nowIndex].Path, result, 'P');
+                _manager.Mount(this._disksView.DiskCollection[nowIndex].Path, pass, letter);
                 this._disksView.DiskCollection[nowIndex].IsMounted = true;
-                this._disksView.DiskCollection[nowIndex].Letter = 'P';
+                this._disksView.DiskCollection[nowIndex].Letter = letter;
                 this.lvUsers.ItemsSource = new List<object>();
                 this.lvUsers.ItemsSource = this._disksView.DiskCollection;
 
@@ -161,7 +170,7 @@ namespace GUI
             }
 
         }
-        
+
 
         private async void ButtonCreateFile_OnClick(object sender, RoutedEventArgs e)
         {
@@ -207,10 +216,10 @@ namespace GUI
 
 
                 var fileInfo = new FileInfo(dlg.FileName);
-                var newDisk = new VirtualDisk {Path = dlg.FileName, Size = (fileInfo.Length / 1024 / 1024).ToString()};
+                var newDisk = new VirtualDisk { Path = dlg.FileName, Size = (fileInfo.Length / 1024 / 1024).ToString() };
 
 
-                if(this._disksView.DiskCollection.All(disk => newDisk.Path != disk.Path))
+                if (this._disksView.DiskCollection.All(disk => newDisk.Path != disk.Path))
                     this._disksView.DiskCollection.Add(newDisk);
 
             }

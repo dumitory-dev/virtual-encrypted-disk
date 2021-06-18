@@ -1,0 +1,53 @@
+﻿<simpleChildWindow:ChildWindow x:Class="GUI.MountDisk"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               Title="Cool Window with long title"
+                               BorderThickness="1"
+                               ChildWindowWidth="300"
+                               mc:Ignorable="d"
+                               ShowTitleBar="False"
+                               HorizontalContentAlignment="Stretch">
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Margin="10"
+                   FontSize="16"
+                   FontWeight="UltraLight"
+                   Text="Enter password and disk letter ..." />
+
+        <PasswordBox  Name="MountPassword" Grid.Row="1" Margin="10" />
+        <ComboBox  Name="AvailableLetters" Margin="10" Grid.Row="2" Height="30" VerticalAlignment="Top">
+           
+        </ComboBox>
+        <UniformGrid Grid.Row="3"
+                     Margin="5"
+                     Columns="2">
+            <Button Margin="5"
+                    Click="MessageButtonOnClick"
+                    Content="OK"
+                    FontSize="16"
+                    FontWeight="Thin"
+                    IsDefault="True" />
+
+            <Button Margin="5"
+                    Click="CloseSec_OnClick"
+                    Content="Close"
+                    FontSize="16"
+                    FontWeight="Thin"
+                    IsDefault="True" />
+        </UniformGrid>
+    </Grid>
+</simpleChildWindow:ChildWindow>
