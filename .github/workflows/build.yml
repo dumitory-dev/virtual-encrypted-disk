@@ -12,5 +12,7 @@ jobs:
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
-    - name: MSBuild
+    - name: MSRestore
       run: msbuild /property:Configuration=debug /p:Platform=x86 /t:Restore .\ved\ved.sln
+    - name: MSBuild
+      run: msbuild /property:Configuration=debug /p:Platform=x86 .\ved\ved.sln
