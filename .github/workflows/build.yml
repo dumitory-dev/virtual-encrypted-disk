@@ -13,4 +13,4 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
     - name: MSBuild
-      run: msbuild /property:Configuration=debug /p:Platform=x86 .\Driver.sln
+      run: msbuild /property:Configuration=debug /p:Platform=x86 .\ved\Driver.sln
