@@ -1,4 +1,4 @@
-ame: ASP.NET CI
+name: ASP.NET CI
 on: [push]
 jobs:
   build:
