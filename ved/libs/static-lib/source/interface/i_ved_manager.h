@@ -1,7 +1,7 @@
 #pragma once
-#include "../../global_headers/pch.h"
-#include "../../../general-headers/constant.h"
-#include "../../../general-headers/open_file_info.h"
+#include "pch.h"
+#include "constant.h"
+#include "open_file_info.h"
 namespace  ved
 {
 

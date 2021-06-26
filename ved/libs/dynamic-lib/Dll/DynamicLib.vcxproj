@@ -24,6 +24,7 @@
     <ProjectGuid>{7f537cf2-76be-4689-b2f0-27d425040d79}</ProjectGuid>
     <RootNamespace>DynamicLib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>VedDll</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -103,7 +104,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include;$(ProjectDir)export\external</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)libs\dynamic-lib\Dll\export\external;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -122,7 +123,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include;$(ProjectDir)export\external</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)libs\dynamic-lib\Dll\export\external;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -141,7 +142,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include;$(ProjectDir)export\external</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)libs\dynamic-lib\Dll\export\external;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -160,7 +161,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source\classes;$(SolutionDir)Lib\source\interface;$(ProjectDir)export\include;$(ProjectDir)export\external</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)libs\dynamic-lib\Dll\export\external;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -184,7 +185,7 @@
     <ClCompile Include="export\src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\Lib.vcxproj">
+    <ProjectReference Include="..\..\static-lib\Lib.vcxproj">
       <Project>{bb182981-61d0-40c2-81b6-263f0e21c416}</Project>
     </ProjectReference>
   </ItemGroup>

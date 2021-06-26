@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)libs\static-lib\source;$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -125,7 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)libs\static-lib\source;$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -144,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)libs\static-lib\source;$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -166,7 +166,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)libs\static-lib\source;$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -191,7 +191,7 @@
     <ClCompile Include="UserConsoleApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Lib\Lib.vcxproj">
+    <ProjectReference Include="..\..\..\libs\static-lib\Lib.vcxproj">
       <Project>{bb182981-61d0-40c2-81b6-263f0e21c416}</Project>
     </ProjectReference>
   </ItemGroup>

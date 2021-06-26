@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general-headers;$(SolutionDir)libs\static-lib\source\</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general-headers;$(SolutionDir)libs\static-lib\source\</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -139,7 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general-headers;$(SolutionDir)libs\static-lib\source\</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
@@ -162,7 +162,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)general_headers;$(SolutionDir)Lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general-headers;$(SolutionDir)libs\static-lib\source\</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
@@ -178,7 +178,7 @@
     <ClCompile Include="TestDriver.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Lib\Lib.vcxproj">
+    <ProjectReference Include="..\..\libs\static-lib\Lib.vcxproj">
       <Project>{bb182981-61d0-40c2-81b6-263f0e21c416}</Project>
     </ProjectReference>
   </ItemGroup>

@@ -11,6 +11,10 @@
     <OutputPath>C:\Users\dev\Documents\GitHub\VED-v2\ved\bin\AnyCPU\Release\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>C:\Users\dev\Documents\GitHub\VED-v2\ved\bin\WPF-GUI</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.5" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.8.0" />

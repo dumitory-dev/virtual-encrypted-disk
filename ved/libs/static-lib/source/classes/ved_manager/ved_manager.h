@@ -1,9 +1,9 @@
 #pragma once
 #include <Windows.h>
-#include "../../../../general-headers/open_file_info.h"
-#include "../../../../general-headers/constant.h"
+#include "open_file_info.h"
+#include "constant.h"
 #include "../../interface/i_ved_manager.h"
-#include "../Lib/source/classes/driver_disk/driver_disk.h"
+#include "classes/driver_disk/driver_disk.h"
 #include "../../classes/install_manager/install_manager.h"
 #include "../hash/hash.h"
 

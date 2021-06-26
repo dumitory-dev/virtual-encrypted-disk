@@ -1,0 +1,7 @@
+$(SolutionDir)libs\static-lib\source\classes
+$(SolutionDir)libs\static-lib\source\interface
+$(SolutionDir)libs\static-lib\global_headers
+$(SolutionDir)general-headers
+$(SolutionDir)libs\dynamic-lib\Dll\export\include
+$(SolutionDir)libs\dynamic-lib\Dll\export\external
+$(SolutionDir)libs\static-lib\source

@@ -1,4 +1,4 @@
-﻿#include "../../../Lib/source/classes/ved_manager/ved_manager.h"
+﻿#include "classes/ved_manager/ved_manager.h"
 #include "classes/copy_sparse/copy_sparse.h"
 #include "source/classes/engine/engine.h"
 
