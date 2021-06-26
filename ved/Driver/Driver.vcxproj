@@ -180,13 +180,13 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/ignore:4099 </AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
       <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;$(SolutionDir)3rdparty\kstl\lib\x86\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x86\kcrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/ignore:4099 </AdditionalOptions>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)general-headers;%(AdditionalIncludeDirectories);$(SolutionDir)3rdparty\kcrt\include;$(SolutionDir)3rdparty\kstl\include</AdditionalIncludeDirectories>
@@ -203,7 +203,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;%(AdditionalDependencies);$(SolutionDir)3rdparty\kstl\lib\x64\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x64\kcrt.lib;ntstrsafe.lib</AdditionalDependencies>
-      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/ignore:4099 </AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -217,7 +217,7 @@
     <Link>
       <AdditionalDependencies>$(DDK_LIB_PATH)wdmsec.lib;$(DDK_LIB_PATH)bufferoverflowk.lib;$(DDK_LIB_PATH)Cng.lib;%(AdditionalDependencies);$(SolutionDir)3rdparty\kstl\lib\x64\kstl.lib;$(SolutionDir)3rdparty\kcrt\lib\x64\kcrt.lib;ntstrsafe.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
-      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/ignore:4099 </AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">

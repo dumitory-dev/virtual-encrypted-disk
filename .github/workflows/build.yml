@@ -1,0 +1,16 @@
+name: ASP.NET CI
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
+    - name: MSBuild
+      run: msbuild /property:Configuration=debug /p:Platform=x86 .\ved\ved.sln
