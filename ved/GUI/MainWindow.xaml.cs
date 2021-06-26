@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
+using ControlzEx.Theming;
 using GUI.VEDHelper;
-using GUI.VEDHelper.VedUnsafeNativeMethods;
 using GUI.View;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
@@ -171,6 +166,32 @@ namespace GUI
 
         }
 
+        private async void ButtonCopyTo_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var nowIndex = this.lvUsers.SelectedIndex;
+
+                if (nowIndex == -1)
+                    return;
+
+                var dlg = new SaveFileDialog { DefaultExt = ".img" };
+
+                dlg.DefaultExt = ".img";
+                dlg.Filter = "(.img)|*.img";
+
+                var result = dlg.ShowDialog();
+
+                if (result != true) return;
+                var dest = dlg.FileName;
+                this._manager.CopyImage(this._disksView.DiskCollection[nowIndex].Path, dest);
+                await this.ShowMessageAsync("Info", "Success!");
+            }
+            catch (Exception error)
+            {
+                await this.ShowMessageAsync("Error", error.Message);
+            }
+        }
 
         private async void ButtonCreateFile_OnClick(object sender, RoutedEventArgs e)
         {
@@ -200,10 +221,26 @@ namespace GUI
 
         }
 
+        private void MenuItemChangeTheme_OnClick(object sender, RoutedEventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+
+            if (menuItem == null)
+                return;
+
+            string theme = "Dark.Green";
+
+            if (menuItem.Name != "Dark")
+                theme = "Light.Blue";
+
+            ThemeManager.Current.ChangeTheme(this, theme);
+        }
+
         private async void MenuItemOpenFile_OnClick(object sender, RoutedEventArgs e)
         {
             try
             {
+
                 var dlg = new OpenFileDialog { DefaultExt = ".img" };
 
                 dlg.DefaultExt = ".img";

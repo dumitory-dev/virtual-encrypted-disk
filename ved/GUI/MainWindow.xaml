@@ -21,6 +21,10 @@
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
+                 <MenuItem Header="Theme">
+                    <MenuItem Name="Light" Header="_Light" Click="MenuItemChangeTheme_OnClick"/>
+                    <MenuItem Name="Dark" Header="_Dark" Click="MenuItemChangeTheme_OnClick"/>
+                </MenuItem>
             </Menu>
         </DockPanel>
 
@@ -38,6 +42,9 @@
                                   Header="Remove"
                                   Command="{Binding DeleteDisk}"
                                   CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}" />
+                        <MenuItem 
+                            Click="ButtonCopyTo_OnClick"
+                            Header="CopyTo"/>
                     </ContextMenu>
                 </ListView.ContextMenu>
                 <ListView.View>
@@ -85,7 +92,7 @@
 
                     </PasswordBox>
                     <Label Content="Crypt mode" />
-                    <RadioButton Margin="0,0,0,10" Name="rbAesCrypt">AES</RadioButton>
+                    <RadioButton Margin="0,0,0,10" Name="rbAesCrypt" IsChecked="True">AES</RadioButton>
                     <RadioButton>RC4</RadioButton>
 
                     <Button Margin="0,20,0,0" Click="ButtonCreateFile_OnClick">

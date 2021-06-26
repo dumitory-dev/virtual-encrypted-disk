@@ -32,6 +32,8 @@ extern "C"
                                    const wchar_t* path_driver,
                                    const wchar_t* name_service) noexcept;
 
+  template DLL_API bool copy_image(const wchar_t * src, const wchar_t * dest) noexcept;
+
   template DLL_API bool get_mounted_disks(char* buffer, int* len) noexcept;
 
   template DLL_API const wchar_t* get_error() noexcept;

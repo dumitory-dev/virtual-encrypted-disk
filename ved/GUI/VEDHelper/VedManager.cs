@@ -101,5 +101,11 @@ namespace GUI.VEDHelper
             if (!NativeVedApi.create_file(path, size, password, (int)mode))
                 ThrowException("create disk file");
         }
+
+        public void CopyImage(string src, string dest)
+        {
+            if (!NativeVedApi.copy_image(src, dest))
+                ThrowException("create disk file");
+        }
     }
 }

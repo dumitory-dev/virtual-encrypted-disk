@@ -25,6 +25,8 @@ namespace GUI.VEDHelper.VedUnsafeNativeMethods
         [return: MarshalAs(UnmanagedType.I1)]
         public static extern bool create_file(string path, ulong size, [MarshalAs(UnmanagedType.LPStr)] string password, int crypt_mode);
 
+        [DllImport(DllHelper.Path, CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool copy_image(string src, string dest);
 
         [DllImport(DllHelper.Path, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.I1)]
