@@ -1,7 +1,7 @@
 #pragma once
-#include "utils.h"
 #include "json.hpp"
 #include "safecall.h"
+#include "utils.h"
 
 #define IMLP_TEMPLATE_FUNC_VED_API(name)                                       \
   template<typename... Args>                                                   \
@@ -15,6 +15,7 @@ IMLP_TEMPLATE_FUNC_VED_API(mount)
 IMLP_TEMPLATE_FUNC_VED_API(mount_ex)
 IMLP_TEMPLATE_FUNC_VED_API(create_file)
 IMLP_TEMPLATE_FUNC_VED_API(run_driver)
+IMLP_TEMPLATE_FUNC_VED_API(copy_image)
 
 template<typename... Args>
 const wchar_t*

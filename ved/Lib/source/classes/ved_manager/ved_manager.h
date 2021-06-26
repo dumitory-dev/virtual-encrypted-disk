@@ -17,7 +17,7 @@ namespace ved
 		
 		ved_manager(void):driver_(MAIN_DEVICE_SYM_LINK)
 		{
-			
+            
 		}
 		
 		~ved_manager(void) = default;

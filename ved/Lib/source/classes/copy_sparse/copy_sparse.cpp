@@ -120,7 +120,7 @@ namespace ved
 		}
 
 		ved::file::settings settings;
-		settings.ws_file_name = in.c_str();
+		settings.ws_file_name = in;
 		settings.dw_desired_access = GENERIC_READ;
 		settings.dw_flags_and_attributes = FILE_FLAG_SEQUENTIAL_SCAN;
 		settings.h_template_file = nullptr;
@@ -136,7 +136,7 @@ namespace ved
 
 
 		ved::file::settings settings_write;
-		settings.ws_file_name = out.c_str();
+		settings.ws_file_name = out;
 		settings.dw_desired_access = GENERIC_WRITE;
 		settings.dw_creation_disposition = CREATE_ALWAYS;
 		settings.dw_flags_and_attributes = FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN;
