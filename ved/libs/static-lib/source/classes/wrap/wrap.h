@@ -1,9 +1,8 @@
 #pragma once
 #include <Windows.h>
 #include "../general-headers/open_file_info.h"
-#include "../general-headers/constant.h"
 #include "../../../global_headers/pch.h"
-#include "../../classes/exceptions/Exception.h"
+
 
 namespace ved {
 

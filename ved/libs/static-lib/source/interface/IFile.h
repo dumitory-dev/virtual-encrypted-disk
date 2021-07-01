@@ -1,5 +1,7 @@
 #pragma once
 #include "../Classes/Wrap/Wrap.h"
+#include "classes/exceptions/exception.h"
+
 namespace ved
 {
 

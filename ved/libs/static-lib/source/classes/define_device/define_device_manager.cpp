@@ -1,4 +1,5 @@
-#include  "define_device_manager.h"
+#include "define_device_manager.h"
+#include "classes/exceptions/exception.h"
 
 namespace  ved
 {

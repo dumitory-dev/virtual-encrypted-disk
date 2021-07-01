@@ -1,6 +1,7 @@
 #pragma once
 #include "../../../global_headers/pch.h"
 #include "../../interface/IFile.h"
+#include "classes/exceptions/exception.h"
 
 namespace ved
 {
