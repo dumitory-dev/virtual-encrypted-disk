@@ -4,15 +4,16 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>YzyDDxS.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <WarningLevel>2</WarningLevel>
-    <OutputPath>C:\Users\dev\Documents\GitHub\VED-v2\ved\bin\AnyCPU\Release\</OutputPath>
+    <OutputPath>C:\Users\dev\Documents\GitHub\VED-v2\ved\bin\WPF-GUI-RELEASE\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Users\dev\Documents\GitHub\VED-v2\ved\bin\WPF-GUI</OutputPath>
+    <OutputPath>C:\Users\dev\Documents\GitHub\VED-v2\ved\bin\WPF-GUI-DEBUG\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
