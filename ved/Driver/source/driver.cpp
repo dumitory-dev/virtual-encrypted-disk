@@ -1307,8 +1307,8 @@ NTSTATUS CreateFile(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp, BOOLEAN bIsOp
 	);
 
 	UNICODE_STRING usFileName;
-	usFileName.Length = pDeviceExtension->file_name.Length;
-	usFileName.MaximumLength = pDeviceExtension->file_name.MaximumLength;
+	usFileName.Length = pDeviceExtension->file_name.Length * sizeof(WCHAR);
+	usFileName.MaximumLength = pDeviceExtension->file_name.Length * sizeof(WCHAR);
 	usFileName.Buffer = (PWCH)ExAllocatePoolWithTag(
 		NonPagedPool,
 		pDeviceExtension->file_name.Length * sizeof(WCHAR),
