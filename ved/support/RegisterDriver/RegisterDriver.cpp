@@ -12,9 +12,10 @@ main()
     std::cout
       << "The driver was launched successfully!\nPress any key to continue.\n";
     std::cin.get();
-  } catch (const std::exception& error) {
-    std::cerr << error.what() << std::endl;
   } catch (const ved::c_win_api_exception& error) {
     std::wcerr << error.GetMessageW() << std::endl;
+  } catch (const std::exception& error) {
+    std::cerr << error.what() << std::endl;
   }
+  std::cin.get();
 }
