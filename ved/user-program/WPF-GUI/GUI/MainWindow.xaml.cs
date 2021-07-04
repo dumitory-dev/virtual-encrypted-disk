@@ -124,7 +124,7 @@ namespace GUI
                 if (nowIndex == -1)
                     return;
 
-                _manager.Mount(this._disksView.DiskCollection[nowIndex].Path, pass, letter);
+                this._manager.Mount(this._disksView.DiskCollection[nowIndex].Path, pass, letter);
                 this._disksView.DiskCollection[nowIndex].IsMounted = true;
                 this._disksView.DiskCollection[nowIndex].Letter = letter;
                 this.lvUsers.ItemsSource = new List<object>();
@@ -223,12 +223,10 @@ namespace GUI
 
         private void MenuItemChangeTheme_OnClick(object sender, RoutedEventArgs e)
         {
-            var menuItem = sender as MenuItem;
-
-            if (menuItem == null)
+            if (sender is not MenuItem menuItem)
                 return;
 
-            string theme = "Dark.Green";
+            var theme = "Dark.Green";
 
             if (menuItem.Name != "Dark")
                 theme = "Light.Blue";
