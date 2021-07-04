@@ -1,4 +1,4 @@
-name: ASP.NET CI
+name: VED ALL
 on: [push]
 jobs:
   build:
