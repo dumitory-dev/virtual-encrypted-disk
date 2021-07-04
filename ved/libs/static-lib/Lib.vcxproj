@@ -48,8 +48,11 @@
     <ClInclude Include="source\classes\install_manager\install_manager.h" />
     <ClInclude Include="source\classes\ved_manager\ved_manager.h" />
     <ClInclude Include="source\classes\wrap\wrap.h" />
-    <ClInclude Include="source\interface\IFile.h" />
+    <ClInclude Include="source\interface\i_file.h" />
     <ClInclude Include="source\interface\i_ved_manager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

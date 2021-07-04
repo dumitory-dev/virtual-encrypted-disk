@@ -101,7 +101,7 @@
     <ClInclude Include="source\classes\wrap\wrap.h">
       <Filter>source\classes\wrap</Filter>
     </ClInclude>
-    <ClInclude Include="source\interface\IFile.h">
+    <ClInclude Include="source\interface\i_file.h">
       <Filter>source\interface</Filter>
     </ClInclude>
     <ClInclude Include="source\classes\ved_manager\ved_manager.h">
@@ -116,5 +116,8 @@
     <ClInclude Include="source\classes\copy_sparse\copy_sparse.h">
       <Filter>source\classes\copy_sparse</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

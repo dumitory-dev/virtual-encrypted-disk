@@ -1,8 +1,8 @@
 
 #include "device.h"
-namespace ved
-{
-	void device::connect()
+namespace ved {
+	void
+		device::connect()
 	{
 		ved::file::settings settings{};
 
@@ -15,34 +15,28 @@ namespace ved
 		h_driver_ = ved::file::create(settings);
 	}
 
-	DWORD device::send_ctl_code(
-		const DWORD code, 
-		void* data_in, 
-		const DWORD size_data_in,
-		void* data_out,
-	    const DWORD size_data_out) const
+	DWORD
+		device::send_ctl_code(const DWORD code,
+			void* data_in,
+			const DWORD size_data_in,
+			void* data_out,
+			const DWORD size_data_out) const
 	{
 
-		
 		DWORD ret = 0;
 
-		if (!::DeviceIoControl(
-			h_driver_->operator void*(),
+		if (!::DeviceIoControl(h_driver_->operator void* (),
 			code,
 			data_in,
 			size_data_in,
 			data_out,
 			size_data_out,
 			&ret,
-			nullptr
-		))
-		{
+			nullptr)) {
 
-		
 			throw ved::driver_exception(L"Error DeviceIoControl!", GetLastError());
 		}
-		
+
 		return ret;
 	}
 }
-

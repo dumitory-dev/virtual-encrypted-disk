@@ -21,26 +21,26 @@ template<typename... Args>
 const wchar_t*
 get_error(Args...) noexcept
 {
-  return cur_error.c_str();
+	return cur_error.c_str();
 }
 
 template<typename... Args>
 bool
 get_mounted_disks(char* buffer, int* len) noexcept
 {
-  return noexcept_call([=]() {
-    if (!check_arguments(buffer, len))
-      throw std::exception("Invalid input argument(null pointer)");
+	return noexcept_call([=]() {
+		if (!check_arguments(buffer, len))
+			throw std::exception("Invalid input argument(null pointer)");
 
-    const auto json_dump =
-      utils::convert_mounted_disk_to_json(manager->get_mounted_disks());
+		const auto json_dump =
+			utils::convert_mounted_disk_to_json(manager->get_mounted_disks());
 
-    if (*len <= json_dump.size()) {
-      *len = json_dump.size() + 1;
-      throw std::exception("Too small input buffer!");
-    }
+		if (*len <= json_dump.size()) {
+			*len = json_dump.size() + 1;
+			throw std::exception("Too small input buffer!");
+		}
 
-    memcpy(buffer, json_dump.c_str(), json_dump.size());
-    buffer[json_dump.size()] = '\0';
-  });
+		memcpy(buffer, json_dump.c_str(), json_dump.size());
+		buffer[json_dump.size()] = '\0';
+		});
 }
