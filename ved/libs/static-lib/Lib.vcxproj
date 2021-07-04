@@ -51,9 +51,6 @@
     <ClInclude Include="source\interface\i_file.h" />
     <ClInclude Include="source\interface\i_ved_manager.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{BB182981-61D0-40C2-81B6-263F0E21C416}</ProjectGuid>

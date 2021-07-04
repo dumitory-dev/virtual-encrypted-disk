@@ -117,7 +117,4 @@
       <Filter>source\classes\copy_sparse</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
 </Project>
