@@ -3,7 +3,10 @@
 #include "classes/exceptions/exception.h"
 
 namespace ved {
-
+	
+	/**
+	 \brief Interface for classes that use IO operations.
+	*/
 	class i_file
 	{
 
@@ -14,12 +17,29 @@ namespace ved {
 		i_file(i_file&&) = delete;
 		i_file& operator=(const i_file&) = delete;
 		i_file& operator=(i_file&&) = delete;
+		
+		/**
+			Destructor
+		*/
 		virtual ~i_file(void) = default;
 
+		/**
+			Pure virtual method for connecting to a device. 
+			\param[in] LPOVERLAPPED Contains information used in asynchronous (or overlapped) input and output (I/O).
+		*/
 		virtual i_file& connect(LPOVERLAPPED = nullptr) const = 0;
 
+		/**
+			Pure virtual method for disconnecting the device.  
+			\param[in] LPOVERLAPPED Contains information used in asynchronous (or overlapped) input and output (I/O).
+		*/
 		virtual i_file& disconnect(void) const = 0;
 
+		/**
+			A method for writing data to the device. 
+			\param[in] vec_buf data
+			\param[in] LPOVERLAPPED Contains information used in asynchronous (or overlapped) input and output (I/O).
+		*/
 		virtual DWORD write(const std::vector<BYTE>& vec_buf,
 			LPOVERLAPPED lp_overlapped = {}) const
 		{
@@ -38,6 +58,12 @@ namespace ved {
 			return dw_return;
 		}
 
+		/**
+			A method for reading data to the device. 
+			\param[out] vec_buf data
+			\param[in] LPOVERLAPPED Contains information used in asynchronous (or overlapped) input and output (I/O).
+			\return Number of reads
+		*/
 		virtual DWORD read(std::vector<BYTE>& vec_buf,
 			LPOVERLAPPED lp_overlapped = {}) const
 		{
@@ -57,13 +83,22 @@ namespace ved {
 			return dw_return;
 		}
 
+		/**
+			Return native handle
+			\return native handle
+		*/
 		operator HANDLE(void) const noexcept { return *this->h_; }
 
+		/**
+			Return device size
+			\return LARGE_INTEGER
+		*/
 		[[nodiscard]] virtual LARGE_INTEGER get_size(void) const = 0;
 
 		virtual bool operator!(void) const noexcept { return !*this->h_; }
 
 	protected:
+		
 		template<typename T, typename Param>
 		static std::unique_ptr<i_file> create(const Param& param)
 		{

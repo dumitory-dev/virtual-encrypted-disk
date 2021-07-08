@@ -4,6 +4,10 @@
 #include <wincrypt.h>
 
 namespace ved {
+	/**
+	 * \brief A class for getting hashes...
+	 *	In the project, from any password we get a hash, which becomes a key for encrypting and decrypting files on the disk. 
+	 */
 	class hash
 	{
 
@@ -21,6 +25,13 @@ namespace ved {
 			SHA256 = (ALG_CLASS_HASH | ALG_TYPE_ANY | 12)
 		};
 
+		/**
+		 * The method returns the hash from the string
+		 *
+		 * \param[in] buf hash data
+		 *
+		 * \return std::string data hash 
+		 */
 		[[nodiscard]] std::string get_hash(const std::vector<byte>& buf) const
 		{
 			if (buf.empty())

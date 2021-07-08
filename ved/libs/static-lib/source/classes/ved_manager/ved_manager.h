@@ -9,6 +9,9 @@
 
 namespace ved {
 
+	/**
+	 * \brief The class implements the i_ved_manager interface functionality with sparse files.
+	 */
 	class ved_manager : public i_ved_manager
 	{
 	public:
