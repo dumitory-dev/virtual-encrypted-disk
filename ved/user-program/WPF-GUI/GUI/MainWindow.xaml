@@ -65,7 +65,7 @@
         <Button Canvas.Left="18" Canvas.Top="384" Width="105" Click="ButtonMount_OnClick">
             Mount!
         </Button>
-        <Button Canvas.Left="128" Canvas.Top="384" Width="105" Click="ButtonUnMount_OnClick" Height="27" Content="Un mount!" RenderTransformOrigin="0.481,0.532"/>
+        <Button Canvas.Left="128" Canvas.Top="384" Width="105" Click="ButtonUnMount_OnClick" Height="27" Content="Unmount!" RenderTransformOrigin="0.481,0.532"/>
 
 
 
