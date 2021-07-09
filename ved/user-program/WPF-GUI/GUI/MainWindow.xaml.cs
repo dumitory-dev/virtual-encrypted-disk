@@ -26,11 +26,13 @@ namespace GUI
 
             try
             {
+                this.CheckAdminRights();
+                this.InitializeComponent();
 
-                InitializeComponent();
                 _manager = new VedManager();
-                LoadMountedDisk();
-                LoadSettings();
+
+                this.LoadMountedDisk();
+                this.LoadSettings();
 
 
                 this.Closing += (_, _) => this._settings.SaveDisks(new List<VirtualDisk>(this._disksView.DiskCollection));
@@ -44,6 +46,14 @@ namespace GUI
                 this.Close();
             }
 
+        }
+
+
+        private void CheckAdminRights()
+        {
+            if (!Utils.Utils.IsAdminRights()) return;
+            MessageBox.Show("Please restart the application without administrator rights!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            this.Close();
         }
 
         private void FlyoutCreateFile_ClosingFinished(object sender, RoutedEventArgs e)
@@ -68,23 +78,19 @@ namespace GUI
 
         private void LoadMountedDisk()
         {
-            var items = JsonConvert.DeserializeObject<List<VirtualDisk>>(this._manager.GetMountedDisksJson());
+            var disks = JsonConvert.DeserializeObject<List<VirtualDisk>>(this._manager.GetMountedDisksJson());
 
-            if (items == null) return;
+            if (disks == null) return;
 
-            foreach (var item in from item in items
-                                 let virtualDiskView = this._disksView.DiskCollection.FirstOrDefault(disk => disk.Path == item.Path)
-                                 where virtualDiskView == null
-                                 select item)
+            foreach (var disk in disks)
             {
-                item.IsMounted = true;
-                this._disksView.DiskCollection.Add(item);
+                disk.IsMounted = true;
+                this._disksView.DiskCollection.Add(disk);
             }
-
         }
+
         private async void ButtonUnMount_OnClick(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 var nowIndex = this.lvUsers.SelectedIndex;
@@ -137,7 +143,6 @@ namespace GUI
             }
 
         }
-
 
         private void ButtonOpenCreateFile_OnClick(object sender, RoutedEventArgs e)
         {
@@ -211,8 +216,6 @@ namespace GUI
 
                 this._disksView.DiskCollection.Add(new VirtualDisk { IsMounted = false, Path = TbPathFile.Text, Size = TbFileSize.Text });
                 this.FlyoutCreateFile.IsOpen = false;
-
-
             }
             catch (Exception error)
             {
