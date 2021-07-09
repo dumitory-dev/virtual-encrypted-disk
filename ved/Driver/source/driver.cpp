@@ -20,6 +20,7 @@ DRIVER_DISPATCH ReadAndWriteDevice;
 DRIVER_DISPATCH ControlDevice;
 KSTART_ROUTINE Thread;
 
+#pragma code_seg("INIT")
 NTSTATUS SysMain(PDRIVER_OBJECT DriverObject, PUNICODE_STRING pRegPath)
 {
 	UNREFERENCED_PARAMETER(pRegPath);
@@ -105,6 +106,7 @@ NTSTATUS SysMain(PDRIVER_OBJECT DriverObject, PUNICODE_STRING pRegPath)
 	DbgPrint("VED: Success driver installation!\r\n");
 	return status;
 }
+#pragma code_seg() // end INIT section
 
 _Use_decl_annotations_
 NTSTATUS ControlDevice(struct _DEVICE_OBJECT* pDeviceObject, struct _IRP* pIrp)
@@ -1293,7 +1295,7 @@ NTSTATUS CreateFile(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp, BOOLEAN bIsOp
 	usFileName.MaximumLength = pDeviceExtension->file_name.MaximumLength;
 	usFileName.Buffer = (PWCH)ExAllocatePoolWithTag(
 		NonPagedPool,
-		pDeviceExtension->file_name.Length * sizeof(WCHAR),
+		pDeviceExtension->file_name.Length,
 		FILE_DISK_POOL_TAG
 	);
 
@@ -1305,7 +1307,7 @@ NTSTATUS CreateFile(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp, BOOLEAN bIsOp
 	RtlCopyMemory(
 		usFileName.Buffer,
 		pDeviceExtension->file_name.Buffer,
-		pDeviceExtension->file_name.Length * sizeof(WCHAR)
+		pDeviceExtension->file_name.Length
 	);
 
 
