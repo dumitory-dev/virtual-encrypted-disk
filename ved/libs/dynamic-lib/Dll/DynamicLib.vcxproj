@@ -104,7 +104,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)libs\dynamic-lib\Dll\export\external;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)3rdparty\json;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -123,7 +123,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)libs\dynamic-lib\Dll\export\external;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)3rdparty\json;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -142,7 +142,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)libs\dynamic-lib\Dll\export\external;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)3rdparty\json;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -161,7 +161,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)libs\dynamic-lib\Dll\export\external;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\static-lib\source\classes;$(SolutionDir)libs\static-lib\source\interface;$(SolutionDir)libs\static-lib\global_headers;$(SolutionDir)general-headers;$(SolutionDir)libs\dynamic-lib\Dll\export\include;$(SolutionDir)3rdparty\json;$(SolutionDir)libs\static-lib\source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -172,7 +172,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="export\external\json.hpp" />
     <ClInclude Include="export\include\main.h" />
     <ClInclude Include="export\include\functions.h" />
     <ClInclude Include="export\include\global_variable.h" />
