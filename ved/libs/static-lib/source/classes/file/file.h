@@ -4,7 +4,9 @@
 #include "pch.h"
 
 namespace ved {
-
+	/**
+	 * \brief The class encapsulates methods of addressing the device descriptor...
+	 */
 	class file final : public i_file
 	{
 
@@ -15,6 +17,10 @@ namespace ved {
 		file& operator=(const file&) = delete;
 		file& operator=(file&&) = delete;
 
+		/**
+		 * \brief Kind of a good practice...
+		 * The default is to open the file for reading
+		 */
 		struct settings
 		{
 
@@ -33,15 +39,37 @@ namespace ved {
 
 		~file(void) override = default;
 
+		/**
+		 * The method creates an instance of our class
+		 * \param[in] settings File opening settings
+		 * \return unique_ptr<i_file> 
+		 */
 		static auto create(const settings& settings)
 		{
 			return i_file::create<file, file::settings>(settings);
 		}
 
+		/**
+		 * The method returns the file size in kilobytes
+		 *
+		 * \return LARGE_INTEGER 
+		 */
 		[[nodiscard]] LARGE_INTEGER get_size(void) const override;
 
+		/**
+		 * The method returns file attributes
+		 *
+		 * \param[in] ws_file File path
+		 * \return DWORD file attributes
+		 */
 		static DWORD get_attributes(const std::wstring& ws_file);
 
+		/**
+		 * The method returns file extension
+		 *
+		 * \param[in] ws_file File path
+		 * \return wstring file extension
+		 */
 		static std::wstring get_extension(const std::wstring& ws_file);
 
 	private:

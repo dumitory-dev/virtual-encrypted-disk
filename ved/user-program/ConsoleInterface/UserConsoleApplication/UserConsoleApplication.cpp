@@ -5,11 +5,8 @@ int
 main(int argc, wchar_t** argv)
 {
 	try {
-
 		ved::engine::get_instance().execute();
-
 		std::wcout << "\nSuccess!" << std::endl;
-
 	}
 
 	catch (const ved::driver_exception& error) {

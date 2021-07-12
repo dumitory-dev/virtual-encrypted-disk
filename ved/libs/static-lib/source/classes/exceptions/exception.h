@@ -6,7 +6,10 @@
 #include <winternl.h>
 
 namespace ved {
-
+	/**
+	 * \brief Own exception classes. This is needed to generate a Win32 error description.
+	 * Error description language is English 
+	 */
 	class c_exception
 	{
 
@@ -47,7 +50,10 @@ namespace ved {
 
 	public:
 		using c_exception::c_exception;
-
+		/**
+		* \brief The method gets its description from the error code.
+		* \return std::wstring description from the error code.
+		*/
 		std::wstring GetMessageW(void) const override
 		{
 
@@ -133,6 +139,12 @@ namespace ved {
 		using c_win_api_exception::c_win_api_exception;
 	};
 
+	/**
+	 *
+	 * \brief A class for translating errors from driver to WinApi errors.
+	 * In general, most NTSTATUS errors can be translated into Win32 and get their description.
+	 * We can say that we are lucky in this respect...
+	 */
 	class driver_exception : public c_win_api_exception
 	{
 	public:
